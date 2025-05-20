@@ -18,6 +18,34 @@ Synthesis requires three files as follows,
 
 ◦ Verilog/VHDL Files (.v or .vhdl or .vhd)
 
+`timescale 1ns/1ns
+module counter(clk,m,rst,count);
+
+input clk,m,rst;
+
+output reg [3:0] count;
+
+always@(posedge clk or negedge rst)
+
+begin
+
+if (!rst)
+
+count=0;
+
+else if(m)
+
+count=count+1;
+
+else
+
+count=count-1;
+
+end
+
+endmodule
+
+
 ◦ SDC (Synopsis Design Constraint) File (.sdc)
 
  ### Step 2 : Creating an SDC File
@@ -64,10 +92,16 @@ used.
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
 
 #### Synthesis RTL Schematic :
+![WhatsApp Image 2025-05-20 at 20 41 10_31b78a4c](https://github.com/user-attachments/assets/35499610-d36c-4940-9dd1-b87d9f37446c)
+
 
 #### Area report:
+![WhatsApp Image 2025-05-20 at 20 41 11_b10226e5](https://github.com/user-attachments/assets/e7903207-a24d-4033-8b9a-765d32603d5b)
+
 
 #### Power Report:
+![WhatsApp Image 2025-05-20 at 20 41 11_d923061e](https://github.com/user-attachments/assets/7db392f1-4002-4955-8498-52ac5bb36dcc)
+
 
 #### Timing Report: 
 
